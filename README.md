@@ -15,7 +15,7 @@ https://demos.conterra.de/mapapps/resources/apps/downloads_arcade_executor/index
 ## Installation Guide
 ⚠️**Requirement: map.apps 4.14.0**
 
-[dn_arcade-executor Documentation](https://github.com/conterra/mapapps-query-builder/tree/master/src/main/js/bundles/dn_arcade-executor)
+[dn_arcade-executor Documentation](https://github.com/conterra/mapapps-arcade-executor/tree/master/src/main/js/bundles/dn_arcade-executor)
 
 ## Development Guide
 ### Define the mapapps remote base
