@@ -14,25 +14,12 @@
 /// limitations under the License.
 ///
 
-interface PropertiesObject {
-    [key: string]: any;
+/*
+ * Copyright (C) con terra GmbH
+ */
+
+// TODO: This module is really problematic because node's own "module" is also picked up by the compiler
+declare module "module" {
+    export const id: string;
 }
-
-export default class Hello {
-    private msg: string;
-    _properties: PropertiesObject;
-
-    activate() {
-        this.msg = this._properties.message;
-    }
-
-    print() {
-        // eslint-disable-next-line no-alert
-        alert(this.getMessage());
-    }
-
-    getMessage() {
-        return this.msg;
-    }
-
-}
+declare module "require";

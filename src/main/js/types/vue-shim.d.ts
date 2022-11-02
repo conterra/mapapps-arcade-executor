@@ -14,6 +14,7 @@
 /// limitations under the License.
 ///
 
-import ".";
-import "./Hello";
-import "ct/tools/Tool";
+/*
+ * Copyright (C) con terra GmbH
+ */
+declare module "*.vue";

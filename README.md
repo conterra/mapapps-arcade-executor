@@ -1,16 +1,31 @@
-# mapapps-remote-project-blueprint
+# Arcade Executor
+The Arcade Executor Bundle allows you to execute Arcade Expressions on FeatureLayer data and add the results as labels to
+the layer in the map.
 
-**This project is not intended for use by non-con terra users.** It is designed for the creation of bundles and their releases in GitHub and can access con terra internal infrastructures for this purpose. To develop your own map.apps bundles, use the [mapapps-4-developers project](https://github.com/conterra/mapapps-4-developers).
+![Screenshot App](https://github.com/conterra/mapapps-arcade-executor/blob/master/screenshot.JPG)
 
-## Build
 
-![example workflow](https://github.com/conterra/mapapps-arcade-executor/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)
+## Build Status
 
-## Requirements
+[![devnet-bundle-snapshot](https://github.com/conterra/mapapps-arcade-executor//actions/workflows/devnet-bundle-snapshot.yml/badge.svg)](https://github.com/conterra/mapapps-arcade-executor/actions/workflows/devnet-bundle-snapshot.yml)
 
--   map.apps 4.14.0
--   All resources from `map.apps-VERSION/sdk/m2-repository` need to be copied manually to your local Maven repository (e.g. `%UserProfile%/.m2/repository` for Windows, `~/.m2/repository` for MacOS).
+## Sample App
+https://demos.conterra.de/mapapps/resources/apps/downloads_arcade_executor/index.html
 
-## More Information
+## Installation Guide
+⚠️**Requirement: map.apps 4.14.0**
 
-The project is always based on the latest version of the [mapapps-4-developers Project](https://github.com/conterra/mapapps-4-developers).
+[dn_arcade-executor Documentation](https://github.com/conterra/mapapps-query-builder/tree/master/src/main/js/bundles/dn_arcade-executor)
+
+## Development Guide
+### Define the mapapps remote base
+Before you can run the project you have to define the mapapps.remote.base property in the pom.xml-file:
+`<mapapps.remote.base>http://%YOURSERVER%/ct-mapapps-webapp-%VERSION%</mapapps.remote.base>`
+
+### Other methods to to define the mapapps.remote.base property.
+1. Goal parameters
+   `mvn install -Dmapapps.remote.base=http://%YOURSERVER%/ct-mapapps-webapp-%VERSION%`
+
+2. Build properties
+   Change the mapapps.remote.base in the build.properties file and run:
+   `mvn install -Denv=dev -Dlocal.configfile=%ABSOLUTEPATHTOPROJECTROOT%/build.properties`

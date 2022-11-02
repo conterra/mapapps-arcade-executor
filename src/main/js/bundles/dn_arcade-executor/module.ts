@@ -14,4 +14,9 @@
 /// limitations under the License.
 ///
 
-import "dojo/i18n!./nls/bundle";
+/*
+ * Copyright (C) con terra GmbH
+ */
+export { ArcadeExecutorWindowFactory as Config } from "./ArcadeExecutorWindowFactory";
+export { ArcadeExecutor } from "./ArcadeExecutor";
+import "ct/tools/Tool";

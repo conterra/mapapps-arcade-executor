@@ -14,4 +14,7 @@
 /// limitations under the License.
 ///
 
-import "./Hello";
+/*
+ * Copyright (C) con terra GmbH
+ */
+import "./ArcadeExecutorTest";

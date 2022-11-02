@@ -1,4 +1,7 @@
 {
+    "properties": {
+        "title": "Arcade Executor"
+    },
     "load": {
         "bundleLocations": [
             "localbundles",
@@ -6,135 +9,112 @@
         ],
         "allowedBundles": [
             "system",
-            "console",
-            "notifier",
             "splashscreen",
             "templatelayout",
             "template-seasons",
-            "theme-autumn",
             "theme-everlasting",
-            "map-init",
-            "map-preload-2D",
             "toolset",
-            "banner",
-            "mapnavigation",
-            "popups-default",
-            "scalebar",
-            "locateme",
-            "parameter-url",
-            "search-ui",
-            "locator-store",
+            "map-init",
             "toc",
-            "sample_helloworld"
+            "popups-default",
+            "custominfo",
+            "banner",
+            "dn_arcade-executor"
         ]
     },
     "bundles": {
-        "banner": {
-            "BannerWidget": {
-                "label": "Developer Network",
-                "image": "resource('${app}:/images/logo_conterra.png')",
-                "imageWidth": 200,
-                "imagePosition": "above",
-                "link": "http://developernetwork.conterra.de"
-            }
-        },
         "map-init": {
             "Config": {
-                "basemaps": [
-                    {
-                        "id": "esri_street",
-                        "title": "Straßenkarte (grau)",
-                        "thumbnailUrl": "resource('${app}:/images/streets.png')",
-                        "selected": true,
-                        "basemap": "gray-vector"
-                    },
-                    {
-                        "id": "esri_hybrid",
-                        "title": "Luftbild (hybrid)",
-                        "thumbnailUrl": "resource('${app}:/images/hybrid.png')",
-                        "basemap": "hybrid"
-                    }
-                ],
+                "basemaps": [{
+                    "id": "streets",
+                    "basemap": "streets-vector",
+                    "title": "Strassen",
+                    "selected": true
+                }],
                 "map": {
-                    "layers": []
+                    "layers": [
+                        {
+                            "title": "Bundesländer",
+                            "type": "AGS_FEATURE",
+                            "url": "https://services2.arcgis.com/jUpNdisbWqRpMo35/ArcGIS/rest/services/LAN_ew_20/FeatureServer/0",
+                            "outFields": ["*"]
+                        },
+                        {
+                            "title": "PegelOnline",
+                            "type": "AGS_FEATURE",
+                            "url": "https://services2.arcgis.com/jUpNdisbWqRpMo35/ArcGIS/rest/services/PegelOnline/FeatureServer/0",
+                            "outFields": ["*"],
+                            "visible": false
+                        }
+                    ]
                 },
                 "view": {
                     "viewmode": "2D",
-                    "center": {
-                        "x": 774853,
-                        "y": 6610677,
+                    "extent": {
+                        "xmin": 600000,
+                        "ymin": 5800000,
+                        "xmax": 1700000,
+                        "ymax": 7600000,
                         "spatialReference": 3857
-                    },
-                    "scale": 140000
+                    }
                 }
             }
         },
-        "themes": {
-            "ThemeModel": {
-                "_selectedTheme": "autumn"
-            },
-            "ThemeSelector": {
-                "componentEnabled": true
+        "popups": {
+            "Config": {
+                "dockEnabled": true,
+                "dockingForced": true,
+                "dockPosition": "bottom-left"
             }
         },
-        "toc": {
-            "Config": {
-                "showBasemaps" : true,
-                "showLayerLegend": true
+        "banner": {
+            "BannerWidget": {
+                "label": "Developer Network",
+                "imagePosition": "above",
+                "image": "resource('${app}:/images/logo_conterra.png')",
+                "imageWidth": 200,
+                "link": "https://www.conterra.de"
             }
         },
         "toolset": {
             "ToolsetManager": {
                 "toolsets": [
                     {
-                        "id": "mapview_tools",
-                        "tools": [
-                            "locateMeTool",
-                            "zoomInTool",
-                            "zoomOutTool",
-                            "compassTool",
-                            "restoreInitialViewTool",
-                            "viewmodeSwitcherTool"
-                        ],
+                        "id": "defaultToolSet",
+                        "tools": ["*"],
                         "registerWidget": {
-                            "widgetRole": "mapview_tools"
+                            "widgetRole": "map_topleft"
                         },
                         "container": "ignore",
                         "windowType": "container",
-                        "cssClass": "muted",
-                        "tooltipPositions": [
-                            "before",
-                            "above",
-                            "below",
-                            "after"
-                        ]
-                    },
-                    {
-                        "id": "drawer_left",
-                        "title": "Werkzeuge",
-                        "cssClass": "ct-main-app-menu",
-                        "tools": [
-                            "tocToggleTool",
-                            "printingToggleTool",
-                            "sharelinkTool",
-                            "helloTool",
-                            "IMPRINT_Imprint_CustomInfoTool",
-                            "IMPRINT_Imprint_CustomInfoTool_mobile"
-                        ],
-                        "registerWidget": {
-                            "widgetRole": "drawer_button"
-                        },
-                        "container": "ignore",
-                        "windowType": "drawer_left",
-                        "tooltipPositions": [
-                            "after",
-                            "above",
-                            "below",
-                            "before"
-                        ]
+                        "cssClass": "muted"
                     }
                 ]
             }
+        },
+        "custominfo": {
+            "CustomInfoToggleTool": [
+                {
+                    "id": "sampleDescriptionTool",
+                    "title": "Arcade",
+                    "widgetSettings": {
+                        "content": "<p>$feature.bez + \" \" + $feature.gen</p><p>Round(Area($feature, 'square-kilometers'), 2)</p><p>Round( $feature.ewz / $feature.kfl, 2)</p><p>$feature.longname+ \": \" + Round($feature.currentMeasure_value, 0) + \" \" + $feature.parameter_unit</p>",
+                        "styleClass": "ctCopyrightContent",
+                        "window": {
+                            "marginBox": {
+                                "w": 350,
+                                "h": 300,
+                                "t": 200,
+                                "l": 150
+                            }
+                        }
+                    },
+                    "rules": {
+                        "groups": "custominfo",
+                        "activateOnStartup": false
+                    }
+                }
+            ]
         }
     }
 }

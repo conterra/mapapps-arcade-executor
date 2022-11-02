@@ -14,10 +14,20 @@
  * limitations under the License.
  */
 export default {
-    root: {
-        bundleName: "Hello World",
-        bundleDescription: "This bundle prints Hello.",
-        hello: "Hello World"
+    error: {
+        noresult: "Ausdruck produzierte kein Ergebnis"
     },
-    de: true
+    arcade: {
+        usableFields: "Nutzbare Felder",
+        expressionLabel: "Arcade-Ausdruck",
+        resultLabel: "Ergebnis",
+        placeholder: "z.B. $feature.name",
+        layer: "Ebenen",
+        evaluate: "Auswerten",
+        apply: "Auf Ebene anwenden"
+    },
+    window: {
+        title: "Arcade ausführen",
+        tooltip: "Arcade ausführen"
+    }
 };
