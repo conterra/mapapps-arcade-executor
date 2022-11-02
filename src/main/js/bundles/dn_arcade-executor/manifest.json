@@ -1,6 +1,6 @@
 {
     "name": "dn_arcade-executor",
-    "version": "1.0.0-SNAPSHOT",
+    "version": "1.0.0",
     "dependencies": {
         "esri": "^4.24.7",
         "ct": "^4.14.0",
