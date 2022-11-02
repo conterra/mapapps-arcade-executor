@@ -4,7 +4,7 @@
 
 ## Build
 
-![example workflow](https://github.com/conterra/mapapps-remote-project-blueprint/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)
+![example workflow](https://github.com/conterra/mapapps-arcade-executor/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)
 
 ## Requirements
 
