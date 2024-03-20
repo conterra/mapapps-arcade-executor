@@ -1,3 +1,4 @@
+⚠️ This bundle is no longer in active development.
 # Arcade Executor
 The Arcade Executor Bundle allows you to execute Arcade Expressions on FeatureLayer data and add the results as labels to
 the layer in the map.
